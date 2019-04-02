@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace DCP_12
 {
@@ -17,7 +17,7 @@ namespace DCP_12
 
 
     //one way is to just brute force it.
-    
+
     public class DCP_12
     {
         public static void Main()
@@ -26,22 +26,23 @@ namespace DCP_12
             String input = Console.ReadLine();
             int[] numbers = input.Split(' ').Select(int.Parse).ToArray();
 
-            Console.WriteLine(BruteNumWaysToClimbStairs(step,numbers));
+            Console.WriteLine(BruteNumWaysToClimbStairs(step, numbers));
         }
 
-        public int BruteNumWaysToClimbStairs(int stepsCount, int[] possibleSteps)
+        public static int BruteNumWaysToClimbStairs(int stepsCount, int[] possibleSteps)
         {
-            if (stepsCount < 0 || possibleSteps.Count == 0) return 0;
+            if (stepsCount < 0 || possibleSteps.Length == 0) return 0;
             else if (stepsCount == 0) return 1;
 
             int n = 0;
-            for (int i = 0; i < possibleSteps; i++)
+            for (int i = 0; i < possibleSteps.Length; i++)
             {
                 n += BruteNumWaysToClimbStairs(stepsCount - possibleSteps[i], possibleSteps);
             }
 
             return n;
         }
+    
 
         /*
         public int NumWaysToClimbStairs(int stepsCount, List<int> possibleSteps)
