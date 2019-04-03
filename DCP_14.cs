@@ -28,6 +28,7 @@ namespace DCP_14
             {
                 x = GetRandNum();
                 y = GetRandNum();
+                 
 
                 if (x * x + y * y <= 1) c++;
             }
