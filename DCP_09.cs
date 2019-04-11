@@ -19,7 +19,7 @@ namespace DCP_09
         public static float LargestSumOfNonAdjacentNum(float[] nums)
         {
             if (nums.Length <= 0) return 0;
-            if (nums.Length == 1) return 1;
+            if (nums.Length == 1) return nums[0];
 
             float sum0 = 0;
             float sum1 = 0;
