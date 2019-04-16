@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace DCP_26
 {
@@ -19,6 +19,11 @@ namespace DCP_26
     {
         public Object value;
         public Node next;
+
+        public Node(Object value)
+        {
+            this.value = value;
+        }
     }
 
     public class DCP_26
@@ -26,19 +31,18 @@ namespace DCP_26
 
         public static Node startNode;
 
-        public static Main()
+        public static void Main()
         {
-            string[] input = Console.ReadLine.Split(' ').Select(int.Parse).ToArray();
+            string[] input = Console.ReadLine().Split(' ').ToArray();
 
-            Node endNode;
-            startNode = endNode;
-            for (int i = 0; i < input.Length; i++)
+            startNode = new Node(input[0]);
+            Node endNode = startNode;
+            for (int i = 1; i < input.Length; i++)
             {
-                endNode.next = new Node();
+                endNode.next = new Node(input[i]);
                 endNode = endNode.next;
-                endNode.value = input[0];               
             }
-            RemoveLastKElement(startNode, (int)Console.ReadLine());
+            RemoveLastKElement(startNode, Int32.Parse(Console.ReadLine()));
         }
 
         public static void RemoveLastKElement(Node node, int k)
@@ -46,7 +50,7 @@ namespace DCP_26
             Node endNode = node;
             for (int i = 0; i < k; i++)
             {
-                if (endNode.next != null) endNode = node.next;
+                if (endNode.next != null) endNode = endNode.next;
                 else
                 {
                     Console.WriteLine("Failed to remove last " + k + " element - List has less than " + k + " elements");
@@ -54,13 +58,13 @@ namespace DCP_26
                 }
             }
             Node lagNode = node;
-            while(endNode.next != null)
+            while (endNode.next != null)
             {
                 endNode = endNode.next;
                 lagNode = lagNode.next;
             }
 
-            if (lagnode.next != null)
+            if (lagNode.next != null)
             {
                 Console.WriteLine("Removed " + lagNode.next.value);
                 lagNode.next = lagNode.next.next;
