@@ -15,6 +15,7 @@ namespace DCP_20
     {
         public static void Main()
         {
+            //These are double linked but they work the same for this example anyway
             LinkedList<int> l1 = new LinkedList<int>(Console.ReadLine().Split(' ').Select(int.Parse).ToArray());
             LinkedList<int> l2 = new LinkedList<int>(Console.ReadLine().Split(' ').Select(int.Parse).ToArray());
 
