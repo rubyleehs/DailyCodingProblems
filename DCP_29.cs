@@ -2,6 +2,8 @@
 
 namespace DCP_29
 {
+    //Implement run-length encoding and decoding. You can assume the string to be encoded have no digits and consists solely of alphabetic characters. You can assume the string to be decoded is valid
+
     public class DCP_29
     {
         public static void Main()
