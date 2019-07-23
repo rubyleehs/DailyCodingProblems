@@ -12,7 +12,6 @@ namespace DCP_42
 
     public class DCP_42
     {
-
         public static void Main()
         {
             GetPossibleSum(Console.ReadLine().Split(' ').Select(int.Parse).ToList(), int.Parse(Console.ReadLine())).Write();
